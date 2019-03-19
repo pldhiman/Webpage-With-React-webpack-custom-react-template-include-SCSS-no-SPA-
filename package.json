@@ -1,0 +1,48 @@
+{
+  "name": "testpage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.dev.js --mode development",
+    "compile:css": "node-sass src/style/main.scss build/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 20 versions' build/style.comp.css -o build/style.prefix.css",
+    "compress:css": "node-sass build/style.prefix.css build/style.css --output-style compressed",
+    "build:webpack": "webpack --config webpack.prod.js --mode production",
+    "build": "npm-run-all compile:css prefix:css compress:css build:webpack"
+  },
+  "author": "vitulgoyal",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "autoprefixer": "^9.4.9",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^2.0.0",
+    "css-loader": "^2.1.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "http-server": "^0.11.1",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-cli": "^6.1.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.1.2",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "npm-run-all": "^4.1.5"
+  }
+}
